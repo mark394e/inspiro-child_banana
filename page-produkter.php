@@ -29,6 +29,7 @@ get_header(); ?>
 			</div>
         </article>
 </template>
+<h1>PRODUKTER</h1>
 
 	<nav class="nav">
     	<button data-influencer="alle" class="valgt">Alle</button>
@@ -121,6 +122,17 @@ function start() {
 	  display: flex;
 	  flex-direction: column;
 	  justify-content: space-between;
+  }
+
+  h1{
+	  display: grid;
+	  place-items: center;
+  }
+
+  nav {
+	display: flex;
+	place-content: center;
+	gap: 40px;
   }
 </style>
 
