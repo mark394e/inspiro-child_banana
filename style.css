@@ -16,3 +16,10 @@ Updated: 2022-05-23 11:27:43
 .page-title {
   display: none;
 }
+
+body:not(.page-layout-sidebar-right) #primary {
+  max-width: calc(1030px + 20px);
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}

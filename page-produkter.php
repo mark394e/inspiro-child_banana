@@ -17,6 +17,7 @@
 
 get_header(); ?>
 
+<!-- template til loopview -->
 <template class="loopview">
         <article>
             <div class="img_box">
@@ -29,21 +30,22 @@ get_header(); ?>
 			</div>
         </article>
 </template>
+
 <h1>PRODUKTER</h1>
 
-	<nav class="nav">
+	<nav id="filtrering">
     	<button data-influencer="alle" class="valgt">Alle</button>
-    	<button data-influencer="Is">Is</button>
-        <button data-influencer="Kager">Kager</button>
-        <button data-influencer="Topping">Topping</button>
     </nav>
 
 <div id="primary" class="content-area">
 		<main id="main" class="site-main">
 		</main><!-- #main -->
+
+		<!-- snippet fra Elementor -->
 	<?php the_content(); ?>
 </div><!-- #primary -->
 
+<!-- javascript til loopview -->
 <script>
 	// Tjekker om DOM'en er loaded før siden vises
 window.addEventListener("DOMContentLoaded", start);
@@ -76,9 +78,14 @@ function start() {
     console.log("Produkter", produkter);
 	console.log("Kategorier", categories);
     visProdukter();
-	// opretKnapper();
+	opretKnapper();
   }
 
+  function opretKnapper(){
+	  categories.forEach(cat =>{
+		document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
+	  })
+  }
   // loop'er gennem alle projekter i json-arrayet
   function visProdukter() {
     console.log("visProdukter");
@@ -94,12 +101,6 @@ function start() {
         klon.querySelector(".ingredienser").textContent = "Ingredienser: " + produkt.ingredienser;
         klon.querySelector(".pris").textContent = produkt.pris + " kr.";
 
-        // tilføjer eventlistner til hvert article-element og lytter efter klik på artiklerne. 
-        // Ved klik sendes man videre til single-projekt.php
-        // klon
-        //   .querySelector("article")
-        //   .addEventListener("click", () => visDetaljer(produkt));
-
         // tilføjer klon-template-elementet til main-elementet (så det hele vises i DOM'en)
         main.appendChild(klon);
       }
@@ -108,20 +109,29 @@ function start() {
 
   hentData();
 }
-	</script>
+</script>
 
+<!-- css til loopview -->
 <style>
 	main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 45px;
+    gap: 50px;
     margin-top: 40px;
   }
 
   article{
 	  display: flex;
 	  flex-direction: column;
-	  justify-content: space-between;
+	  /* justify-content: space-between; */
+	  width: 300px;
+	  border: 1px solid #442A09;
+	  background-color: #F8E08C;
+	  border-radius: 25px;
+  }
+
+  .img_box, .text_box{
+	  padding: 15px 15px 0 15px;
   }
 
   h1{
