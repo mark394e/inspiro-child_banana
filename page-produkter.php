@@ -161,8 +161,12 @@ function start() {
 	gap: 40px;
   }
 
-  .copyright {
+  .site-info {
     display: none;
+  }
+
+  #colophon {
+    background-color: #FED500;
   }
 </style>
 
