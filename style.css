@@ -24,7 +24,8 @@ body:not(.page-layout-sidebar-right) #primary {
   padding-right: 10px;
 }
 
-.site-content-contain {
-  background-color: #fff889;
-  position: relative;
+@media (max-width: 768px) {
+  button.navbar-toggle {
+    display: none;
+  }
 }
