@@ -160,14 +160,6 @@ function start() {
 	place-content: center;
 	gap: 40px;
   }
-
-  .site-info {
-    display: none;
-  }
-
-  #colophon {
-    background-color: #FED500;
-  }
 </style>
 
 

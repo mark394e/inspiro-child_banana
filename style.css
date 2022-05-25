@@ -23,3 +23,11 @@ body:not(.page-layout-sidebar-right) #primary {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.site-info {
+  display: none;
+}
+
+footer#colophon.site-footer {
+  background-color: #fed500;
+}
