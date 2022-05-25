@@ -23,8 +23,3 @@ body:not(.page-layout-sidebar-right) #primary {
   padding-left: 10px;
   padding-right: 10px;
 }
-
-.site-footer {
-  background: #fed500;
-  color: #78787f;
-}
