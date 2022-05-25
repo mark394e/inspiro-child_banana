@@ -24,6 +24,7 @@ body:not(.page-layout-sidebar-right) #primary {
   padding-right: 10px;
 }
 
-footer#colophon.site-footer {
-  background-color: #fed500;
+.site-footer {
+  background: #fed500;
+  color: #78787f;
 }

@@ -12,3 +12,9 @@
 <div class="site-info">
 
 </div><!-- .site-info -->
+
+<!-- <style>
+	.site-info{
+		background-color: #fed500;
+	}
+</style> -->
