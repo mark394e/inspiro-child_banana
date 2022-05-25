@@ -34,7 +34,7 @@ get_header(); ?>
 <h1>PRODUKTER</h1>
 
 	<nav id="filtrering">
-    	<button data-influencer="alle" class="valgt">Alle</button>
+    	<button data-produkt="alle" class="valgt">Alle</button>
     </nav>
 
 <div id="primary" class="content-area">
@@ -85,6 +85,20 @@ function start() {
 	  categories.forEach(cat =>{
 		document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
 	  })
+
+    addEventListenersToButtons();
+  }
+
+  function addEventListenersToButtons(){
+    document.querySelectorAll("#filtrering button").forEach(elm => {
+      elm.addEventListener("click", filtrering);
+    })
+  };
+
+  function filtrering(){
+      filter = this.dataset.produkt;
+
+      visProdukter();
   }
   // loop'er gennem alle projekter i json-arrayet
   function visProdukter() {
@@ -98,6 +112,8 @@ function start() {
         const klon = template.cloneNode(true);
         klon.querySelector(".billede").src = produkt.billede.guid;
         klon.querySelector(".produkt_titel").textContent = produkt.title.rendered;
+
+        
         klon.querySelector(".ingredienser").textContent = "Ingredienser: " + produkt.ingredienser;
         klon.querySelector(".pris").textContent = produkt.pris + " kr.";
 
