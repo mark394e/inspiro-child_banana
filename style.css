@@ -28,4 +28,9 @@ body:not(.page-layout-sidebar-right) #primary {
   .inspiro--with-page-nav .navbar-toggle {
     display: none;
   }
+
+  .site-content-contain {
+    background-color: #fff889;
+    position: relative;
+  }
 }
