@@ -112,8 +112,6 @@ function start() {
         const klon = template.cloneNode(true);
         klon.querySelector(".billede").src = produkt.billede.guid;
         klon.querySelector(".produkt_titel").textContent = produkt.title.rendered;
-
-        
         klon.querySelector(".ingredienser").textContent = "Ingredienser: " + produkt.ingredienser;
         klon.querySelector(".pris").textContent = produkt.pris + " kr.";
 
@@ -130,24 +128,32 @@ function start() {
 <!-- css til loopview -->
 <style>
 	main {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+    display: flex;
+    flex-direction: column;
     gap: 50px;
     margin-top: 40px;
   }
 
   article{
 	  display: flex;
-	  flex-direction: column;
+	  /* flex-direction: column; */
 	  /* justify-content: space-between; */
-	  width: 300px;
+	  width: 100vw;
 	  border: 1px solid #442A09;
-	  background-color: #F8E08C;
-	  border-radius: 25px;
+	  /* background-color: #F8E08C; */
+	  /* border-radius: 25px; */
+    height: 400px;
+    background-image: url('<?php echo get_template_directory_uri(); ?>/billeder/face.png');
   }
 
   .img_box, .text_box{
 	  padding: 15px 15px 0 15px;
+  }
+
+  img{
+    width: 300px;
   }
 
   h1{
@@ -160,6 +166,15 @@ function start() {
 	place-content: center;
 	gap: 40px;
   }
+
+  body:not(.page-layout-sidebar-right) #primary {
+	max-width: calc(1030px + 20px); 
+	margin: 0;
+	padding-left: 0px;
+  padding-right: 0px;
+}
+
+
 </style>
 
 

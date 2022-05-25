@@ -23,3 +23,8 @@ body:not(.page-layout-sidebar-right) #primary {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.site-content-contain {
+  background-color: #fff889;
+  position: relative;
+}
