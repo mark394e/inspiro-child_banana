@@ -160,6 +160,10 @@ function start() {
 	place-content: center;
 	gap: 40px;
   }
+
+  .copyright {
+    display: none;
+  }
 </style>
 
 
