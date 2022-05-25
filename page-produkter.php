@@ -145,7 +145,7 @@ function start() {
 	  /* background-color: #F8E08C; */
 	  /* border-radius: 25px; */
     height: 400px;
-    background-image: url('<?php echo get_template_directory_uri(); ?>/billeder/boelgeboks_mint.png');
+    background-image: url('<?php echo get_stylesheet_directory_uri() ?>/billeder/boelgeboks_mint.png');
   }
 
   .img_box, .text_box{

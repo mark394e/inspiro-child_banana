@@ -24,7 +24,7 @@ body:not(.page-layout-sidebar-right) #primary {
   padding-right: 10px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .inspiro--with-page-nav .navbar-toggle {
     display: none;
   }
