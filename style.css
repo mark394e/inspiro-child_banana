@@ -25,7 +25,7 @@ body:not(.page-layout-sidebar-right) #primary {
 }
 
 @media (max-width: 768px) {
-  button.navbar-toggle {
+  .inspiro--with-page-nav .navbar-toggle {
     display: none;
   }
 }
