@@ -12,10 +12,10 @@ Updated: 2022-05-23 11:27:43
 */
 @import url("../inspiro/style.css");
 
-.page .entry-title,
+/* .page .entry-title,
 .page-title {
   display: none;
-}
+} */
 
 body:not(.page-layout-sidebar-right) #primary {
   max-width: calc(1030px + 20px);
@@ -28,9 +28,79 @@ body:not(.page-layout-sidebar-right) #primary {
   .inspiro--with-page-nav .navbar-toggle {
     display: none;
   }
+}
 
-  .site-content-contain {
-    background-color: #fff889;
-    position: relative;
-  }
+.site-content-contain {
+  background-color: #fff889;
+  position: relative;
+}
+
+body.has-header-image .site-title,
+body.has-header-image .site-title a,
+body.has-header-video .site-title,
+body.has-header-video .site-title a {
+  color: #482900;
+}
+
+.headroom--not-top .navbar {
+  background: #fff889;
+  padding: 12px 0;
+}
+
+.has-header-image.home.blog .headroom--not-top .navbar,
+.has-header-image.inspiro-front-page .headroom--not-top .navbar,
+.has-header-video.home.blog .headroom--not-top .navbar,
+.has-header-video.inspiro-front-page .headroom--not-top .navbar {
+  background: #fff889;
+  padding: 12px 0;
+}
+
+.navbar {
+  color: #482900;
+  background: #fff889;
+}
+
+.navbar-nav .menu-item-has-children .svg-icon {
+  fill: #482900;
+}
+
+.sb-search .sb-search-button-close .sb-icon-search .svg-icon,
+.sb-search .sb-search-button-open .sb-icon-search .svg-icon {
+  cursor: pointer;
+  fill: #482900;
+}
+
+.hide_overlay {
+  background: #fff789a3;
+}
+
+.site-title {
+  pointer-events: none;
+  cursor: default;
+}
+
+.site-title::after {
+  display: none;
+}
+
+.custom-header-button {
+  margin-top: initial;
+}
+
+.custom-header-media {
+  display: flex;
+  position: relative;
+}
+
+.custom-header-media:before {
+  content: "";
+  background: #fff889;
+  width: 100%;
+}
+
+.omtale_text {
+  background-color: #fddbca;
+  color: #482900;
+  border-radius: 20px;
+  padding: 20px;
 }

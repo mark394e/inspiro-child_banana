@@ -20,6 +20,7 @@ get_header(); ?>
 <!-- template til loopview -->
 <template class="loopview">
         <article>
+          <img src="<?php echo get_stylesheet_directory_uri() ?>/billeder/boelgeboks_mint.png" alt="" class="boelge">
             <div class="img_box">
             	<img src="" alt="" class="billede" />
             </div>
@@ -139,21 +140,28 @@ function start() {
   article{
 	  display: flex;
 	  /* flex-direction: column; */
-	  /* justify-content: space-between; */
+	  justify-content: space-around;
 	  width: 100vw;
-	  border: 1px solid #442A09;
+	  /* border: 1px solid #442A09; */
 	  /* background-color: #F8E08C; */
 	  /* border-radius: 25px; */
     height: 400px;
-    background-image: url('<?php echo get_stylesheet_directory_uri() ?>/billeder/boelgeboks_mint.png');
+   
   }
 
   .img_box, .text_box{
-	  padding: 15px 15px 0 15px;
+	  padding: 110px 15px 0 15px;
+    z-index: 1;
   }
 
-  img{
+  .billede{
     width: 300px;
+  }
+
+  .boelge{
+    width: 100vw;
+    height: 400px;
+    position: absolute;
   }
 
   h1{
