@@ -12,11 +12,6 @@ Updated: 2022-05-23 11:27:43
 */
 @import url("../inspiro/style.css");
 
-/* .page .entry-title,
-.page-title {
-  display: none;
-} */
-
 body:not(.page-layout-sidebar-right) #primary {
   max-width: calc(1030px + 20px);
   margin: 0 auto;
@@ -39,11 +34,11 @@ body.has-header-image .site-title,
 body.has-header-image .site-title a,
 body.has-header-video .site-title,
 body.has-header-video .site-title a {
-  color: #482900;
+  color: #fffdeb;
 }
 
 .headroom--not-top .navbar {
-  background: #fff889;
+  background: rgba(0, 0, 0, 0);
   padding: 12px 0;
 }
 
@@ -51,13 +46,13 @@ body.has-header-video .site-title a {
 .has-header-image.inspiro-front-page .headroom--not-top .navbar,
 .has-header-video.home.blog .headroom--not-top .navbar,
 .has-header-video.inspiro-front-page .headroom--not-top .navbar {
-  background: #fff889;
+  background: none;
   padding: 12px 0;
 }
-
 .navbar {
   color: #482900;
-  background: #fff889;
+  background: none;
+  /* background: #fff889; */
 }
 
 .navbar-nav .menu-item-has-children .svg-icon {
@@ -94,7 +89,7 @@ body.has-header-video .site-title a {
 
 .custom-header-media:before {
   content: "";
-  background: #fff889;
+  background: #fff898;
   width: 100%;
 }
 
@@ -103,4 +98,67 @@ body.has-header-video .site-title a {
   color: #482900;
   border-radius: 20px;
   padding: 20px;
+}
+
+#scroll-to-content::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  height: 30px;
+  width: 30px;
+  border: 3px solid #482900;
+  transform: rotate(45deg);
+}
+
+/* h1.elementor-heading-title {
+  font-family: tomarik-display, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+.navbar-nav ul {
+  left: 50%;
+  width: 220px;
+  margin-top: 15px;
+  border-top: 2px solid #fff898;
+  background: #482900;
+  transform: translate(-50%, 0);
+}
+.navbar-nav ul a {
+  color: #fff898;
+  padding: 8px 15px;
+  border-bottom: none;
+}
+
+.navbar-nav ul a:hover {
+  color: #fff898;
+  padding: 8px 15px;
+  text-decoration: underline;
+}
+
+.navbar-nav > li > a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #482900;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.has-header-image .navbar,
+.has-header-video .navbar {
+  position: absolute;
+  width: 100%;
+  background: 0 0;
+  background-image: none;
+  color: #fffdeb;
+}
+
+.navbar-nav .menu-item-has-children .svg-icon {
+  margin-left: 0.25em;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: text-top;
+  fill: #fffdeb;
 }

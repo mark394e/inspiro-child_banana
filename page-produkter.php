@@ -167,6 +167,10 @@ function start() {
   h1{
 	  display: grid;
 	  place-items: center;
+    font-family: tomarik-display, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #482900;
   }
 
   nav {
