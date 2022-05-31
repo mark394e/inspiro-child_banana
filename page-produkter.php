@@ -41,9 +41,9 @@ get_header(); ?>
 <div id="primary" class="content-area">
 		<main id="main" class="site-main">
 		</main><!-- #main -->
-
+<?php the_content(); ?>
 		<!-- snippet fra Elementor -->
-	<?php the_content(); ?>
+	
 </div><!-- #primary -->
 
 <!-- javascript til loopview -->
