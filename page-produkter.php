@@ -20,23 +20,32 @@ get_header(); ?>
 <!-- template til loopview -->
 <template class="loopview">
         <article>
-          <img src="<?php echo get_stylesheet_directory_uri() ?>/billeder/boelgeboks_mint.png" alt="" class="boelge">
+          <!-- <img src="<?php echo get_stylesheet_directory_uri() ?>/billeder/boelgeboks_mint.png" alt="" class="boelge"> -->
             <div class="img_box">
             	<img src="" alt="" class="billede" />
             </div>
 			<div class="text_box">
             	<h2 class="produkt_titel"></h2>
-            	<p class="ingredienser"></p>
-            	<p class="pris"></p>
+            	<p class="beskrivelse"></p>
 			</div>
         </article>
 </template>
 
-<h1>PRODUKTER</h1>
 
-	<nav id="filtrering">
+<div class="header_produkter">
+   <img src="<?php echo get_stylesheet_directory_uri() ?>/billeder/hvid_boelge.png" alt="" class="baggrundsboelge">
+<h1>VORES PRODUKTER</h1>
+<p class="produkt_intro_tekst"> 
+  <b>Mød de nyeste medlemmer af Banana familien.</b>
+  Vi er glade for at kunne præsentere de nyeste medlemmer af den voksende Banana familie; 
+  vores 480 ml is-bæger samt verdensnyheden veganske ‘romkugler’ og det prisbelønnede Bananbrød 
+  der vandt produktprisen i kategorien konfekture i kokkekonkurrencen Sol Over Gudhjem 2021.</p>
+  	<nav id="filtrering">
     	<button data-produkt="alle" class="valgt">Alle</button>
     </nav>
+</div>
+
+
 
 <div id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -61,9 +70,8 @@ function start() {
   // definere globale variable
   const main = document.querySelector("main");
   const template = document.querySelector(".loopview").content;
-  const popup = document.querySelector("#popup");
   const article = document.querySelector("article");
-  const lukKnap = document.querySelector("#luk");
+
 
   
   let produkter;
@@ -98,9 +106,9 @@ function start() {
 
   function filtrering(){
       filter = this.dataset.produkt;
-
       visProdukter();
   }
+
   // loop'er gennem alle projekter i json-arrayet
   function visProdukter() {
     console.log("visProdukter");
@@ -113,8 +121,8 @@ function start() {
         const klon = template.cloneNode(true);
         klon.querySelector(".billede").src = produkt.billede.guid;
         klon.querySelector(".produkt_titel").textContent = produkt.title.rendered;
-        klon.querySelector(".ingredienser").textContent = "Ingredienser: " + produkt.ingredienser;
-        klon.querySelector(".pris").textContent = produkt.pris + " kr.";
+        klon.querySelector(".beskrivelse").textContent = produkt.beskrivelse;
+
 
         // tilføjer klon-template-elementet til main-elementet (så det hele vises i DOM'en)
         main.appendChild(klon);
@@ -128,6 +136,48 @@ function start() {
 
 <!-- css til loopview -->
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+.produkt_intro_boks{
+	display: grid;
+	place-items: center;
+}
+
+.produkt_intro_tekst, .beskrivelse {
+	max-width: 600px;
+  color: #482900;
+  font-family: 'Raleway', sans-serif;
+}
+
+.produkt_titel{
+  color: #482900;
+  font-family: 'Permanent Marker', cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.produkt_intro_tekst{
+  position: absolute;
+top: 40%;
+left: 29%;
+margin-top: -80px;
+}
+
+.header_produkter{
+  position: relative;
+}
+
+.baggrundsboelge{
+  margin-top: -700px;
+}
+
+#filtrering{
+  position: absolute;
+  top: 55%;
+  left: 32%;
+}
+
 	main {
     /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
@@ -137,25 +187,29 @@ function start() {
     margin-top: 40px;
   }
 
-  article{
-	  display: flex;
-	  /* flex-direction: column; */
-	  justify-content: space-around;
-	  width: 100vw;
-	  /* border: 1px solid #442A09; */
-	  /* background-color: #F8E08C; */
-	  /* border-radius: 25px; */
-    height: 400px;
-   
-  }
+ article {
+	display: grid;
+	width: 100vw;
+	height: 400px;
+	grid-template-columns: 500px 1fr;
+	gap: 200px;
+}
 
   .img_box, .text_box{
-	  padding: 110px 15px 0 15px;
     z-index: 1;
   }
 
+  .text_box{
+    padding-top: 40px;
+  }
+
+  .img_box{
+    display: grid;
+    place-content: center end;
+  }
+
   .billede{
-    width: 300px;
+    max-width: 300px;
   }
 
   .boelge{
@@ -165,12 +219,16 @@ function start() {
   }
 
   h1{
-	  display: grid;
-	  place-items: center;
-    font-family: tomarik-display, sans-serif;
+	  /* display: grid;
+	  place-items: center; */
+   font-family: 'Permanent Marker', cursive;
     font-weight: 400;
     font-style: normal;
     color: #482900;
+    position: absolute;
+    top: 10%;
+    left: 38%;
+    margin-top: -35px;
   }
 
   nav {

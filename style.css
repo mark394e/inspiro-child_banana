@@ -46,13 +46,20 @@ body.has-header-video .site-title a {
 .has-header-image.inspiro-front-page .headroom--not-top .navbar,
 .has-header-video.home.blog .headroom--not-top .navbar,
 .has-header-video.inspiro-front-page .headroom--not-top .navbar {
-  background: none;
+  background: #482900;
   padding: 12px 0;
 }
 .navbar {
-  color: #482900;
-  background: none;
+  color: #fffdeb;
+  background: #482900;
   /* background: #fff889; */
+}
+
+.site-header.headroom--not-top {
+  position: fixed;
+  top: 0;
+  border: none;
+  background: #482900;
 }
 
 .navbar-nav .menu-item-has-children .svg-icon {
@@ -155,7 +162,7 @@ body.has-header-video .site-title a {
   width: 100%;
   background: 0 0;
   /* background: rgba(72, 41, 0, 0.5); */
-  background: #482900;
+  background: none;
   color: #fffdeb;
 }
 
