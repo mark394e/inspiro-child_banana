@@ -49,11 +49,11 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
 		<main id="main" class="site-main">
-		</main><!-- #main -->
-<?php the_content(); ?>
+		</main>
+
 		<!-- snippet fra Elementor -->
-	
-</div><!-- #primary -->
+	<?php the_content(); ?>
+</div>
 
 <!-- javascript til loopview -->
 <script>
@@ -72,8 +72,6 @@ function start() {
   const template = document.querySelector(".loopview").content;
   const article = document.querySelector("article");
 
-
-  
   let produkter;
   let filter = "alle";
   let categories;
@@ -81,15 +79,16 @@ function start() {
   // Henter json-data fra wordpress via fetch()
   async function hentData() {
     const respons = await fetch(url);
-	const catData = await fetch(catUrl);
+	  const catData = await fetch(catUrl);
     produkter = await respons.json();
-	categories = await catData.json();
+	  categories = await catData.json();
     console.log("Produkter", produkter);
-	console.log("Kategorier", categories);
+	  console.log("Kategorier", categories);
     visProdukter();
-	opretKnapper();
+	  opretKnapper();
   }
 
+  // for hver kategorie oprettes der en knap
   function opretKnapper(){
 	  categories.forEach(cat =>{
 		document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
@@ -98,31 +97,53 @@ function start() {
     addEventListenersToButtons();
   }
 
+  // tilføjer en click-eventlistener til hver knap
   function addEventListenersToButtons(){
-    document.querySelectorAll("#filtrering button").forEach(elm => {
+      document.querySelectorAll("#filtrering button").forEach(elm => {
       elm.addEventListener("click", filtrering);
     })
   };
 
+  // sætter filter til det dataset der hører til den valgte knap 
   function filtrering(){
       filter = this.dataset.produkt;
-      visProdukter();
+
+      // ved klik på knap scroll'er siden ned til indholdet
+      let mobil_viewport = window.matchMedia("(max-width: 600px)");
+  if (mobil_viewport.matches) {
+     window.scrollTo({
+      top: 450,
+      left: 450,
+      behavior: 'smooth'
+  });
+  } else{
+     window.scrollTo({
+      top: 350,
+      left: 350,
+      behavior: 'smooth'
+  });
+  }
+    visProdukter();
   }
 
-  // loop'er gennem alle projekter i json-arrayet
+  // loop'er gennem alle produkter i json-arrayet
   function visProdukter() {
     console.log("visProdukter");
 
-    main.textContent = ""; // Her resetter jeg DOM'en ved at tilføje en tom string
+    main.textContent = ""; // Her resetter vi DOM'en ved at tilføje en tom string
 
-    // for hver projekt i arrayet, skal der tjekkes om de opfylder filter-kravet og derefter vises i DOM'en.
+    // for hver produkt i arrayet, skal der tjekkes om de opfylder filter-kravet og derefter vises i DOM'en.
     produkter.forEach((produkt) => {
+      
       if (filter == "alle" || produkt.categories.includes(parseInt(filter))) {
+
+        // kloner template-article-elementet
         const klon = template.cloneNode(true);
+
+        // indsætter billede, titel og beskrivelse af hvert produkt i hver deres article-element
         klon.querySelector(".billede").src = produkt.billede.guid;
         klon.querySelector(".produkt_titel").textContent = produkt.title.rendered;
         klon.querySelector(".beskrivelse").textContent = produkt.beskrivelse;
-
 
         // tilføjer klon-template-elementet til main-elementet (så det hele vises i DOM'en)
         main.appendChild(klon);
@@ -136,6 +157,7 @@ function start() {
 
 <!-- css til loopview -->
 <style>
+  /* henter fonte fra google fonts vha. @import */
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
@@ -183,8 +205,7 @@ margin-top: -80px;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    margin-top: 40px;
+    margin-top: -110px;
   }
 
  article {
@@ -192,7 +213,7 @@ margin-top: -80px;
 	width: 100vw;
 	height: 400px;
 	grid-template-columns: 500px 1fr;
-	gap: 200px;
+	/* gap: 200px; */
 }
 
   .img_box, .text_box{
@@ -203,10 +224,10 @@ margin-top: -80px;
     padding-top: 40px;
   }
 
-  .img_box{
+  /* .img_box{
     display: grid;
     place-content: center end;
-  }
+  } */
 
   .billede{
     max-width: 300px;
@@ -237,11 +258,11 @@ margin-top: -80px;
 	gap: 40px;
   }
 
-  body:not(.page-layout-sidebar-right) #primary {
+  /* body:not(.page-layout-sidebar-right) #primary {
 	max-width: calc(1030px + 20px); 
 	margin: 0;
 	padding-left: 0px;
-  padding-right: 0px;
+  padding-right: 0px; */
 }
 
 
