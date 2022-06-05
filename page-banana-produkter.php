@@ -20,7 +20,6 @@ get_header(); ?>
 <!-- template til loopview -->
 <template class="loopview">
         <article>
-          <!-- <img src="<?php echo get_stylesheet_directory_uri() ?>/billeder/boelgeboks_mint.png" alt="" class="boelge"> -->
             <div class="img_box">
             	<img src="" alt="" class="billede" />
             </div>
@@ -36,10 +35,7 @@ get_header(); ?>
    <img src="<?php echo get_stylesheet_directory_uri() ?>/billeder/hvid_boelge.png" alt="" class="baggrundsboelge">
 <h1>VORES PRODUKTER</h1>
 <p class="produkt_intro_tekst"> 
-  <b>Mød de nyeste medlemmer af Banana familien.</b>
-  Vi er glade for at kunne præsentere de nyeste medlemmer af den voksende Banana familie; 
-  vores 480 ml is-bæger samt verdensnyheden veganske ‘romkugler’ og det prisbelønnede Bananbrød 
-  der vandt produktprisen i kategorien konfekture i kokkekonkurrencen Sol Over Gudhjem 2021.</p>
+    <b>Mød de nyeste produkter i Banana familien. </b> Vi er glade for at kunne præsentere de nyeste produkter i den voksende Banana familie; vores 480 ml is-bæger samt verdensnyheden veganske ‘romkugler’ og det prisbelønnede Bananbrød der vandt produktprisen i kategorien konfekture i kokkekonkurrencen Sol Over Gudhjem 2021.</p>
   	<nav id="filtrering">
     	<button data-produkt="alle" class="valgt">Alle</button>
     </nav>
@@ -88,7 +84,7 @@ function start() {
 	  opretKnapper();
   }
 
-  // for hver kategorie oprettes der en knap
+  // for hver kategori oprettes der en knap
   function opretKnapper(){
 	  categories.forEach(cat =>{
 		document.querySelector("#filtrering").innerHTML += `<button class="filter" data-produkt="${cat.id}">${cat.name}</button>`
@@ -112,14 +108,14 @@ function start() {
       let mobil_viewport = window.matchMedia("(max-width: 600px)");
   if (mobil_viewport.matches) {
      window.scrollTo({
-      top: 450,
-      left: 450,
+      top: 550,
+      left: 550,
       behavior: 'smooth'
   });
   } else{
      window.scrollTo({
-      top: 350,
-      left: 350,
+      top: 325,
+      left: 325,
       behavior: 'smooth'
   });
   }
@@ -161,6 +157,8 @@ function start() {
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
+/* Media query dekstop */
+@media (min-width: 900px){
 .produkt_intro_boks{
 	display: grid;
 	place-items: center;
@@ -197,7 +195,10 @@ margin-top: -80px;
 #filtrering{
   position: absolute;
   top: 55%;
-  left: 32%;
+  left: 15.5%;
+  	display: flex;
+	place-content: center;
+	gap: 40px;
 }
 
 	main {
@@ -252,17 +253,212 @@ margin-top: -80px;
     margin-top: -35px;
   }
 
-  nav {
-	display: flex;
+
+ #filtrering > button {
+	background: url(http://hoffmannlund.dk/kea/10_eksamen/banana_cph/wp-content/themes/inspiro-child/billeder/knap_baggrund.png) no-repeat;
+	width: 220px;
+	height: 60px;
+	padding: 0;
+  border: none;
+   transition: .2s ease-in-out 0s;
+   font-family: 'Raleway', sans-serif;
+}
+#filtrering > button:hover{
+  color: #482900;
+  border: none;
+  transform: scale(1.25);
+  font-weight: 800;
+}
+}
+
+
+
+/* media query tablet */
+@media (max-width: 899px){
+  .produkt_intro_boks{
+	display: grid;
+	place-items: center;
+}
+
+.produkt_intro_tekst, .beskrivelse {
+  color: #482900;
+  font-family: 'Raleway', sans-serif;
+}
+
+.produkt_titel{
+  color: #482900;
+  font-family: 'Permanent Marker', cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.produkt_intro_tekst{
+  position: absolute;
+top: 40%;
+left: 15%;
+margin-top: -80px;
+	max-width: 600px;
+}
+
+.header_produkter{
+  position: relative;
+}
+
+.baggrundsboelge{
+  margin-top: -175px;
+}
+
+#filtrering{
+  position: absolute;
+  top: 55%;
+  display: flex;
 	place-content: center;
-	gap: 40px;
+	gap: 30px;
+  flex-flow: wrap;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin-top: -70px; 
+}
+
+ article {
+	display: grid;
+	grid-template-columns: 380px 1fr;
+  margin-bottom: 60px;
+}
+
+  .img_box, .text_box{
+    z-index: 1;
+    display: grid;
+    place-content: center;
   }
 
-  /* body:not(.page-layout-sidebar-right) #primary {
-	max-width: calc(1030px + 20px); 
-	margin: 0;
-	padding-left: 0px;
-  padding-right: 0px; */
+  .text_box{
+    padding-top: 40px;
+    max-width: 380px;
+  }
+
+
+  .billede{
+    max-width: 300px;
+  }
+
+  .boelge{
+    width: 100vw;
+    height: 400px;
+    position: absolute;
+  }
+
+  h1{
+	  /* display: grid;
+	  place-items: center; */
+   font-family: 'Permanent Marker', cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #482900;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    margin-top: -35px;
+  }
+
+
+ #filtrering > button {
+	background: url(http://hoffmannlund.dk/kea/10_eksamen/banana_cph/wp-content/themes/inspiro-child/billeder/knap_baggrund.png) no-repeat;
+	width: 220px;
+	height: 60px;
+	padding: 0;
+  border: none;
+   transition: .2s ease-in-out 0s;
+   font-family: 'Raleway', sans-serif;
+}
+#filtrering > button:hover{
+  color: #482900;
+  border: none;
+  transform: scale(1.25);
+  font-weight: 800;
+}
+}
+
+/* media query mobil */
+@media (max-width: 600px){
+.baggrundsboelge{
+  margin-top: -75px;
+}
+
+h1{
+	font-family: 'Permanent Marker', cursive;
+	font-weight: 400;
+	font-style: normal;
+	color: #482900;
+	position: absolute;
+	margin-top: -270px;
+	font-size: 2rem;
+	left: 9%;
+  top: auto;
+}
+.produkt_intro_tekst {
+	position: absolute;
+	font-size: 0.7rem;
+	margin: -185px 20px;
+  color: #482900;
+  font-family: 'Raleway', sans-serif;
+  top: auto;
+  left: auto;
+}
+
+#filtrering {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+  left: 20%;
+  gap: 10px;
+  top: auto;
+}
+
+ #filtrering > button {
+	background: url(http://hoffmannlund.dk/kea/10_eksamen/banana_cph/wp-content/themes/inspiro-child/billeder/knap_baggrund.png) no-repeat;
+	width: 220px;
+	height: 60px;
+	padding: 0;
+  border: none;
+   transition: .2s ease-in-out 0s;
+   font-family: 'Raleway', sans-serif;
+}
+
+main{
+  margin-top: 270px;
+}
+article{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+.img_box {
+	order: 1;
+	max-width: 250px;
+	display: grid;
+	place-self: center;
+}
+
+.produkt_titel{
+  color: #482900;
+  font-family: 'Permanent Marker', cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: grid;
+    place-items: center;
+}
+
+.beskrivelse {
+	color: #482900;
+	font-family: 'Raleway', sans-serif;
+	padding: 0 20px;
+}
+
 }
 
 
