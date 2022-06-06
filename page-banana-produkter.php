@@ -457,6 +457,7 @@ article{
 	color: #482900;
 	font-family: 'Raleway', sans-serif;
 	padding: 0 20px;
+  font-size: 0.7rem;
 }
 
 }

@@ -19,7 +19,7 @@ body:not(.page-layout-sidebar-right) #primary {
   padding-right: 10px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 899px) {
   .inspiro--with-page-nav .navbar-toggle {
     display: none;
   }
@@ -199,4 +199,10 @@ body.has-header-video .site-title a {
 .side-nav__scrollable-container {
   background-color: #482900;
   color: #fffdeb;
+}
+
+.navbar-nav > li.current-menu-item > a,
+.navbar-nav > li.current-menu-parent > a,
+.navbar-nav > li.current_page_item > a {
+  color: #ffd702;
 }
